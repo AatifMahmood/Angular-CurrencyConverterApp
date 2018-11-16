@@ -1,0 +1,33 @@
+<div id="body-wrapper" class="d-flex flex-column align-items-center justify-content-center text-center py-5 px-1">
+  <h1 class="mb-5">Currency Convert App</h1>
+  <div class="card p-4">
+    <form class="form-inline" [formGroup]="convertForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <input class="form-control mx-1" type="number" formControlName="inputValue" required="" placeholder="Enter Value"
+          min="1">
+        <label>FROM:&nbsp;</label>
+        <select class="form-control mx-1" formControlName="inputCur">
+          <optgroup label="SELECT CURRENCY">
+            <option value="USD" selected>USD</option>
+            <option value="AUD">AUD</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group mb-3">
+        <label>TO:&nbsp;</label>
+        <select class="form-control mx-1" formControlName="outputCur">
+          <optgroup label="SELECT CURRENCY">
+            <option value="USD">USD</option>
+            <option value="AUD" selected>AUD</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">CONVERT</button>
+      </div>
+    </form>
+    <p class="m-0 font-weight-bold" *ngIf="output">
+      ${{inputValue | number}} {{inputCur}} equals ${{outputValue | number}}
+      {{outputCur}}.</p>
+  </div>
+</div>
